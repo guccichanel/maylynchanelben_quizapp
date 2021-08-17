@@ -28,7 +28,7 @@ app.get('/question', function (req, res) {
     }
 })
 //get next question
-app.get('/nex-question', function (req, res) {
+app.get('/next-question', function (req, res) {
     console.log('getting next question');
     return function nextQuestion() {
         resetState()
