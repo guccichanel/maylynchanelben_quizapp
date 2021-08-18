@@ -1,9 +1,11 @@
 //listen for DOM loaded
 window.addEventListener('DOMContentLoaded', (event) => {
     alert('DOM Loaded');
-    const startButton = document.getElementById('start-btn');
-    startButton.addEventListener('click', function () {
+
+    document.getElementById("start-btn").addEventListener('click', function () {
         alert('Game is about to begin');
+        location.href = './quiz.html'
+
         fetch('http://localhost:8000/question', {
             method: 'GET'
         }).then(function (response) {
@@ -11,6 +13,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }).then(function (json) {
             const answer = answer;
         })
+
+
     });
 });
 

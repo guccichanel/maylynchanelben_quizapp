@@ -115,6 +115,12 @@ const triviaQuestions = [
     },
 ]
 
+let option1 = document.getElementById("option1");
+let option2 = document.getElementById("option2");
+let option3 = document.getElementById("option3");
+let option4 = document.getElementById("option4");
+
+
 function startGame() {
     // console.log('game started')
     startButton.classList.add('hide');
@@ -131,17 +137,33 @@ function nextQuestion() {
 }
 
 function showQuestion(question) {
-    questionElement.innerText =  question.question
-    question.answer.forEach(answer => {
-        const button = document.createElement('button')
-        button.innerText = answer.text
-        button.classList.add('btn')
-        if(answer.correct) {
-            button.dataset.correct = answer.correct
+    // questionElement.innerText =  question.question
+    // question.answer.forEach(answer => {
+    //     const button = document.createElement('button')
+    //     button.innerText = answer.text
+    //     button.classList.add('btn')
+    //     if(answer.correct) {
+    //         button.dataset.correct = answer.correct
+    //     }
+    //     button.addEventListener('click' , selectAnswer)
+    //     answerButtonElement.appendChild(button)
+    // })
+    for(var i=0; i < quizQuestions.length; i++){
+        document.getElementById("option1").innerHTML = quizQuestions[i].answer1;
+        document.getElementById("option2").innerHTML = quizQuestions[i].answer2;
+
+        if (quizQuestions[i].answer3 == null){
+            document.getElementById("option3").innerHTML = null;
+        } else {
+            document.getElementById("option3").innerHTML = quizQuestions[i].answer3;
         }
-        button.addEventListener('click' , selectAnswer)
-        answerButtonElement.appendChild(button)
-    })
+
+        if (quizQuestions[i].answer4 == null){
+            document.getElementById("option4").innerHTML = null;
+        } else {
+            document.getElementById("option4").innerHTML = quizQuestions[i].answer4;
+        }
+    } 
 }
 
 function resetState() {
